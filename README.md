@@ -32,6 +32,21 @@
 ### 4. Cada vez que edites el Apps Script
 Tenés que volver a "Implementar → Gestionar implementaciones → editar → nueva versión" para que los cambios salgan en la URL pública.
 
+### 5. SEO — indexación en Google
+El sitio ya trae lo básico: `title`/`description`, canonical, Open Graph, datos estructurados (`CleaningService`), `robots.txt` y `sitemap.xml`.
+
+**Cuando pases de `github.io` a tu dominio propio**, actualizá la URL en estos 4 lugares (buscá `alegonzalezz.github.io/prueba_pagina`):
+- `index.html`: `<link rel="canonical">` y los `<meta property="og:url">`
+- `robots.txt`: línea `Sitemap:`
+- `sitemap.xml`: `<loc>`
+
+Después de publicar (con la URL definitiva):
+1. Entrá a [Google Search Console](https://search.google.com/search-console), agregá la propiedad con tu dominio.
+2. Verificá la propiedad (Search Console te da una opción por DNS o por archivo HTML — con dominio propio, DNS es la más simple).
+3. Sección "Sitemaps" → enviá `sitemap.xml`.
+4. Usá "Inspección de URLs" para pedir la indexación de la home.
+La indexación real puede demorar de días a un par de semanas.
+
 ## Notas de diseño
 - Tipografías: Space Grotesk (títulos) + IBM Plex Sans (texto) + IBM Plex Mono (labels/datos), cargadas desde Google Fonts.
 - Sin frameworks ni build step — se edita y se sube directo.

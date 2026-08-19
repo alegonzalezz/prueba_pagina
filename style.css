@@ -23,6 +23,8 @@
 
 html { scroll-behavior: smooth; }
 
+address { font-style: normal; }
+
 body {
   margin: 0;
   background: var(--bg);
@@ -328,6 +330,50 @@ a { color: var(--teal); }
 
 @media (max-width: 860px) {
   .checklist-grid { grid-template-columns: 1fr; }
+}
+
+/* FAQ */
+.faq-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.faq-item { background: var(--surface); }
+
+.faq-item summary {
+  padding: 20px 26px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: "+";
+  font-family: var(--font-mono);
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+.faq-item[open] summary::after { content: "–"; }
+
+.faq-item p {
+  margin: 0;
+  padding: 0 26px 20px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
 }
 
 /* ==========================================================

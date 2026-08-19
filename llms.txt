@@ -1,0 +1,28 @@
+# Duolim
+
+> Empresa de limpieza corporativa en Ciudad Autónoma de Buenos Aires (CABA) y Gran Buenos Aires (GBA), en actividad desde 2008. Atiende bancos, oficinas, industrias, colegios y clínicas con personal propio (no tercerizado) y un encargado fijo por contrato.
+
+## Datos de contacto
+- Dirección: Patagones 2474, CABA, Argentina
+- Email comercial: ventas@duolim.com.ar
+- Email general: info@duolim.com.ar
+- Cotizaciones: https://alegonzalezz.github.io/prueba_pagina/#cotizar
+- Búsqueda laboral: https://alegonzalezz.github.io/prueba_pagina/#trabaja
+
+## Sectores atendidos
+- Bancos y financieras (limpieza fuera de horario de atención, personal habilitado para áreas restringidas)
+- Oficinas y consorcios (mantenimiento diario de espacios comunes y puestos de trabajo)
+- Industria (limpieza técnica de plantas y pisos industriales)
+- Colegios y universidades (fuera de horario de clases)
+- Clínicas y sanatorios (protocolo de desinfección por área, normas de bioseguridad)
+- Finales de obra (limpieza profunda post-construcción)
+
+## Datos clave
+- Fundación: 2008
+- Trayectoria: más de 15 años
+- Personal: propio, en relación de dependencia (no subcontratado)
+- Tiempo de respuesta a cotizaciones: menos de 48 horas hábiles
+- Zona de cobertura: CABA y GBA
+
+## Páginas
+- [Sitio completo](https://alegonzalezz.github.io/prueba_pagina/): información institucional, sectores atendidos, preguntas frecuentes, formulario de cotización y formulario de postulación laboral.
