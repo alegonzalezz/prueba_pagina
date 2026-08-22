@@ -92,3 +92,27 @@ function wireForm(formId) {
 
 wireForm("form-cotizacion");
 wireForm("form-trabajo");
+
+// Carrusel de servicios: duplica las cards para un loop infinito sin
+// repetir el markup en el HTML. Si el usuario prefiere menos movimiento,
+// no se duplica y el carrusel queda como una fila scrolleable normal.
+function setupServiceCarousels() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReducedMotion) return;
+
+  document.querySelectorAll(".service-track").forEach((track) => {
+    const cards = Array.from(track.children);
+    // Duración proporcional a la cantidad de cards para que la velocidad
+    // de desplazamiento se sienta pareja entre categorías.
+    track.style.setProperty("--marquee-duration", `${cards.length * 5}s`);
+
+    cards.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.classList.add("is-duplicate");
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+  });
+}
+
+setupServiceCarousels();
