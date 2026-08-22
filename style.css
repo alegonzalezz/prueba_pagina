@@ -56,6 +56,8 @@ p { margin: 0 0 16px; color: var(--ink-soft); }
 
 a { color: var(--teal); }
 
+.accent { color: var(--teal-deep); }
+
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -272,29 +274,21 @@ a { color: var(--teal); }
 
 .section-intro { max-width: 60ch; }
 
-.stat-list {
-  list-style: none;
-  padding: 0;
-  margin: 24px 0 0;
-  display: flex;
-  gap: 32px;
+/* Mission / vision pair */
+.mv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 8px 0 32px;
 }
 
-.stat-list li { display: flex; flex-direction: column; }
-
-.stat-list strong {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  color: var(--teal-deep);
+@media (max-width: 560px) {
+  .mv-grid { grid-template-columns: 1fr; }
 }
 
-.stat-list span {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
+/* Grouped services within a category */
+.service-category + .service-category { margin-top: 56px; }
+.service-category > h3 { margin-top: 40px; }
 
 /* Checklist grid */
 .checklist-grid {
@@ -305,6 +299,9 @@ a { color: var(--teal); }
   background: var(--line);
   border: 1px solid var(--line);
 }
+
+.checklist-grid.values-grid { grid-template-columns: repeat(2, 1fr); }
+.checklist-grid.single-col { grid-template-columns: 1fr; }
 
 .check-item {
   background: var(--surface);

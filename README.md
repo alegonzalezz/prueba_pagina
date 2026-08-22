@@ -1,4 +1,4 @@
-# Duolim v2 — sitio estático
+# DUOMAN — sitio estático
 
 ## Estructura
 - `index.html` — página completa
@@ -33,7 +33,7 @@
 Tenés que volver a "Implementar → Gestionar implementaciones → editar → nueva versión" para que los cambios salgan en la URL pública.
 
 ### 5. SEO — indexación en Google
-El sitio ya trae lo básico: `title`/`description`, canonical, Open Graph, datos estructurados (`CleaningService`), `robots.txt` y `sitemap.xml`.
+El sitio ya trae lo básico: `title`/`description`, canonical, Open Graph, datos estructurados (`HomeAndConstructionBusiness`), `robots.txt` y `sitemap.xml`.
 
 **Cuando pases de `github.io` a tu dominio propio**, actualizá la URL en estos 4 lugares (buscá `alegonzalezz.github.io/prueba_pagina`):
 - `index.html`: `<link rel="canonical">` y los `<meta property="og:url">`
