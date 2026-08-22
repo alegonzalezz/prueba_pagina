@@ -33,6 +33,14 @@
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Evita el flash de tema incorrecto antes de que cargue el CSS/JS principal
+    (function () {
+      var t = localStorage.getItem("theme");
+      if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
 
   <script type="application/ld+json">
   {
@@ -98,7 +106,7 @@
         "name": "¿Cómo pido una cotización?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Completando el formulario de cotización con tus datos y el servicio que necesitás. Te respondemos con un presupuesto detallado antes de empezar el trabajo."
+          "text": "Completando el formulario de cotización con tus datos y los servicios que necesitás, pudiendo seleccionar más de uno. Te respondemos con un presupuesto detallado antes de empezar el trabajo."
         }
       },
       {
@@ -119,13 +127,27 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a href="#" class="brand">DUOMAN</a>
-      <nav class="nav">
+      <nav class="nav" id="main-nav">
         <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
         <a href="#faq">Preguntas frecuentes</a>
         <a href="#trabaja">Trabajá con nosotros</a>
         <a href="#cotizar" class="nav-cta">Pedir cotización</a>
       </nav>
+      <div class="header-actions">
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/>
+          </svg>
+        </button>
+        <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -234,15 +256,19 @@
           <p class="section-intro">Servicios técnicos para oficinas, comercios y empresas, ejecutados por
             profesionales calificados.</p>
           <div class="service-carousel">
+            <button type="button" class="carousel-arrow prev" aria-label="Servicio anterior">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
             <div class="service-track">
-            <div class="service-card">
-              <div class="service-card-image">
-                <img src="images/servicios/cableado-estructura-redes.webp" alt="Cableado y estructura de redes" loading="lazy">
-              </div>
+              <div class="service-card">
+                <div class="service-card-image">
+                  <img src="images/servicios/cableado-estructura-redes.webp" alt="Cableado y estructura de redes" loading="lazy">
+                </div>
               <div class="service-card-body">
                 <h3>Cableado y estructura de redes</h3>
                 <p>Instalación y certificación de cableado estructurado para datos, voz y redes de última
                   generación.</p>
+                <button type="button" class="btn-detail" data-service="cableado-estructura-redes">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -253,6 +279,7 @@
                 <h3>Electricidad</h3>
                 <p>Instalaciones eléctricas seguras, tableros, reparaciones y trabajos conforme a normas vigentes.
                 </p>
+                <button type="button" class="btn-detail" data-service="electricidad">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -263,6 +290,7 @@
                 <h3>Iluminación</h3>
                 <p>Diseño e instalación de sistemas de iluminación interior y exterior, con tecnología LED de bajo
                   consumo.</p>
+                <button type="button" class="btn-detail" data-service="iluminacion">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -272,6 +300,7 @@
               <div class="service-card-body">
                 <h3>Plomería</h3>
                 <p>Reparaciones e instalaciones de agua, gas y redes sanitarias con personal habilitado.</p>
+                <button type="button" class="btn-detail" data-service="plomeria">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -281,6 +310,7 @@
               <div class="service-card-body">
                 <h3>Cerrajería</h3>
                 <p>Aperturas, cambio de cerraduras e instalación de sistemas de seguridad para accesos.</p>
+                <button type="button" class="btn-detail" data-service="cerrajeria">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -290,6 +320,7 @@
               <div class="service-card-body">
                 <h3>Vidriería</h3>
                 <p>Colocación y reparación de vidrios, espejos y mamparas de ducha a medida.</p>
+                <button type="button" class="btn-detail" data-service="vidrieria">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -299,9 +330,13 @@
               <div class="service-card-body">
                 <h3>Destapaciones y desagües</h3>
                 <p>Destapación de cañerías y desagües con equipos profesionales de alta presión.</p>
+                <button type="button" class="btn-detail" data-service="destapaciones-desagues">Ver detalle</button>
               </div>
             </div>
             </div>
+            <button type="button" class="carousel-arrow next" aria-label="Servicio siguiente">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
           </div>
         </div>
 
@@ -310,6 +345,9 @@
           <p class="section-intro">Obras, reformas y mejoras estructurales para oficinas y negocios, con la
             calidad y la garantía que tu espacio merece.</p>
           <div class="service-carousel">
+            <button type="button" class="carousel-arrow prev" aria-label="Servicio anterior">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
             <div class="service-track">
             <div class="service-card">
               <div class="service-card-image">
@@ -318,6 +356,7 @@
               <div class="service-card-body">
                 <h3>Construcción en seco</h3>
                 <p>Tabiques, cielorrasos y revestimientos en placa de yeso con terminaciones impecables.</p>
+                <button type="button" class="btn-detail" data-service="construccion-en-seco">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -327,6 +366,7 @@
               <div class="service-card-body">
                 <h3>Albañilería</h3>
                 <p>Obras civiles, revoques y reparaciones estructurales de mampostería y cerámicos.</p>
+                <button type="button" class="btn-detail" data-service="albanileria">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -336,6 +376,7 @@
               <div class="service-card-body">
                 <h3>Pintura</h3>
                 <p>Pintura interior y exterior para hogares, comercios e industrias con materiales de primera.</p>
+                <button type="button" class="btn-detail" data-service="pintura">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -345,6 +386,7 @@
               <div class="service-card-body">
                 <h3>Herrería</h3>
                 <p>Trabajos de metal para seguridad y diseño: rejas, portones, barandas y estructuras a medida.</p>
+                <button type="button" class="btn-detail" data-service="herreria">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -355,6 +397,7 @@
                 <h3>Techos</h3>
                 <p>Reparación, recubrimiento y aislación de techos y cubiertas para terminar con las
                   filtraciones.</p>
+                <button type="button" class="btn-detail" data-service="techos">Ver detalle</button>
               </div>
             </div>
             <div class="service-card">
@@ -364,9 +407,13 @@
               <div class="service-card-body">
                 <h3>Impermeabilizaciones</h3>
                 <p>Soluciones definitivas contra la humedad y la filtración en terrazas, balcones y muros.</p>
+                <button type="button" class="btn-detail" data-service="impermeabilizaciones">Ver detalle</button>
               </div>
             </div>
             </div>
+            <button type="button" class="carousel-arrow next" aria-label="Servicio siguiente">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+            </button>
           </div>
         </div>
 
@@ -382,6 +429,7 @@
               <div class="service-card-body">
                 <h3>Fumigación y control de plagas</h3>
                 <p>Brindamos soluciones para el control y prevención de plagas domiciliarias e industriales.</p>
+                <button type="button" class="btn-detail" data-service="fumigacion-plagas">Ver detalle</button>
               </div>
             </div>
           </div>
@@ -418,8 +466,8 @@
           </details>
           <details class="faq-item">
             <summary>¿Cómo pido una cotización?</summary>
-            <p>Completá el formulario de cotización con tus datos y el servicio que necesitás. Te respondemos con
-              un presupuesto detallado antes de empezar el trabajo.</p>
+            <p>Completá el formulario de cotización con tus datos y los servicios que necesitás (podés elegir
+              varios). Te respondemos con un presupuesto detallado antes de empezar el trabajo.</p>
           </details>
           <details class="faq-item">
             <summary>¿Cómo puedo postularme para trabajar en DUOMAN?</summary>
@@ -487,31 +535,14 @@
               <input type="tel" name="telefono">
             </label>
           </div>
-          <label>Servicio
-            <select name="servicio" required>
-              <option value="">Elegí una opción</option>
-              <optgroup label="Mantenimiento e Instalaciones Técnicas">
-                <option value="cableado-estructura-redes">Cableado y estructura de redes</option>
-                <option value="electricidad">Electricidad</option>
-                <option value="iluminacion">Iluminación</option>
-                <option value="plomeria">Plomería</option>
-                <option value="cerrajeria">Cerrajería</option>
-                <option value="vidrieria">Vidriería</option>
-                <option value="destapaciones-desagues">Destapaciones y desagües</option>
-              </optgroup>
-              <optgroup label="Construcción y Mejoras de Oficina">
-                <option value="construccion-en-seco">Construcción en seco</option>
-                <option value="albanileria">Albañilería</option>
-                <option value="pintura">Pintura</option>
-                <option value="herreria">Herrería</option>
-                <option value="techos">Techos</option>
-                <option value="impermeabilizaciones">Impermeabilizaciones</option>
-              </optgroup>
-              <optgroup label="Servicios Especiales">
-                <option value="fumigacion-plagas">Fumigación y control de plagas</option>
-              </optgroup>
-            </select>
-          </label>
+          <fieldset class="chips-field" data-services-field>
+            <legend>Servicios <span class="chips-hint">(podés elegir varios)</span></legend>
+            <div class="chips-selected" data-chips-selected hidden></div>
+            <div class="chip-options" data-chip-options>
+              <p class="chip-error" data-chips-error hidden>Elegí al menos un servicio.</p>
+            </div>
+            <input type="hidden" name="servicio">
+          </fieldset>
           <label>Contanos más detalles
             <textarea name="mensaje" rows="3"
               placeholder="Antigüedad del problema, medidas, cantidad de ambientes, etc."></textarea>
@@ -602,6 +633,22 @@
       </address>
     </div>
   </footer>
+
+  <dialog id="service-modal" class="service-modal" aria-labelledby="service-modal-title">
+    <div class="service-modal-header">
+      <h3 id="service-modal-title"></h3>
+      <button type="button" class="service-modal-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="service-modal-body">
+      <p id="service-modal-desc"></p>
+      <ul id="service-modal-list" class="service-modal-list"></ul>
+    </div>
+    <div class="service-modal-footer">
+      <a href="#cotizar" class="btn btn-primary btn-block">Pedir cotización</a>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>
