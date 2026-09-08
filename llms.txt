@@ -1,6 +1,6 @@
 # DUOMAN
 
-> Empresa de mantenimiento y obra para hogares, comercios y empresas en Ciudad Autónoma de Buenos Aires (CABA) y Gran Buenos Aires (GBA). Agrupa oficios técnicos y de obra (electricidad, plomería, construcción, pintura, cerrajería y más) en un solo equipo, con personal calificado y respuesta rápida.
+> Empresa de mantenimiento y obra integral para hogares, comercios y empresas en Ciudad Autónoma de Buenos Aires (CABA) y Gran Buenos Aires (GBA). Agrupa oficios técnicos y de obra en un solo equipo con personal calificado, respuesta rápida y cotización sin cargo.
 
 ## Datos de contacto
 - Dirección: Patagones 2474, CABA, Argentina
@@ -10,14 +10,15 @@
 - Búsqueda laboral: https://alegonzalezz.github.io/prueba_pagina/#trabaja
 
 ## Áreas de servicio
-- Mantenimiento e Instalaciones Técnicas: cableado y redes, electricidad, iluminación, plomería, cerrajería, vidriería, destapaciones y desagües
-- Construcción y Mejoras de Oficina: construcción en seco, albañilería, pintura, herrería, techos, impermeabilizaciones
-- Servicios Especiales: fumigación y control de plagas
+- **Mantenimiento e Instalaciones Técnicas**: cableado y redes, electricidad, iluminación, plomería, cerrajería, vidriería, destapaciones y desagües
+- **Construcción y Mejoras**: construcción en seco, albañilería, pintura, herrería, techos, impermeabilizaciones
+- **Servicios Especiales**: fumigación y control de plagas
 
 ## Datos clave
 - Personal: calificado y verificado por oficio
 - Tiempo de respuesta a cotizaciones: menos de 24 horas hábiles
 - Zona de cobertura: CABA y GBA
+- Presupuesto: sin cargo, detallado y sin compromiso
 - Valores: responsabilidad, calidad, transparencia, compromiso
 
 ## Páginas
